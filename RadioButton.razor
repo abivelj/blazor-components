@@ -1,0 +1,25 @@
+@typeparam TItem
+
+<input name="@Name" type="radio" checked="@(Value.Equals(CheckedValue))" @onchange="@(()=> OnChange())" attributes="@AdditionalAttributes" />
+
+@code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object> AdditionalAttributes { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public TItem Value { get; set; }
+
+    [Parameter]
+    public EventCallback<TItem> ValueChanged { get; set; }
+
+    [Parameter]
+    public TItem CheckedValue { get; set; }
+
+    private void OnChange()
+    {
+        ValueChanged.InvokeAsync(CheckedValue);
+    }
+}
