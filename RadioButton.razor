@@ -1,6 +1,6 @@
 @typeparam TItem
 
-<input name="@Name" type="radio" checked="@(Value.Equals(CheckedValue))" @onchange="@(()=> OnChange())" attributes="@AdditionalAttributes" />
+<input name="@Name" type="radio" checked="@(Value.Equals(CheckedValue))" @onchange="@(()=> OnChange())" @attributes="@AdditionalAttributes" />
 
 @code {
     [Parameter(CaptureUnmatchedValues = true)]
